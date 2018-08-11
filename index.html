@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>It's Tricky - RUN D.M.C. Logo Generator</title>
+</head>
+<body>
+    <canvas id="myCanvas" width="1180" height="1292" style="border:1px solid #000000;">
+        Your browser does not support Canvas.
+    </canvas>
+    
+    <a id="download" download="logo.jpg"><button type="button" onClick="download()">Download</button></a>    
+</body>
+<script>
+    var canvas = document.getElementById("myCanvas");
+    var ctx = canvas.getContext("2d");
+    ctx.fillStyle = "#000000";
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    
+    ctx.fillStyle = "#F70000";
+    ctx.fillRect(40, 40, 1100, 158);
+    ctx.fillRect(40, 1094, 1100, 158);
+
+    ctx.fillStyle = "#FFFFFF";
+    ctx.font = "150px Arial";
+    // ctx.fillText("RUN",10,50);
+    // ctx.fillText("DMC",10,50);
+
+    function download(){
+        var download = document.getElementById("download");
+        var image = document.getElementById("myCanvas").toDataURL("image/jpeg").replace("image/png", "image/octet-stream");
+        download.setAttribute("href", image);
+    }
+</script>
+</html>
