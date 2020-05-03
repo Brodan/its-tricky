@@ -1,9 +1,24 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <meta charset="utf-8"/>
     <title>It's Tricky - RUN D.M.C. Logo Generator</title>
+    <style type="text/css">
+        @font-face {
+            font-family: "franklin-gothic-heavy";
+            src: url("./Franklin\ Gothic\ Heavy\ Regular.ttf");
+        }
+        .run-dmc {
+            font-weight: 900;
+            font-size: 36px;
+            font-style: normal;
+            font-family: "franklin-gothic-heavy";
+        }
+    </style>
 </head>
 <body>
+    <input type="text" id="line-1" placeholder="RUN" maxlength="3"/>
+    <input type="text" id="line-2" placeholder="DMC" maxlength="3"/>
     <canvas id="myCanvas" width="1180" height="1292" style="border:1px solid #000000;">
         Your browser does not support Canvas.
     </canvas>
