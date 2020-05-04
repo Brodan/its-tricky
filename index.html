@@ -17,8 +17,8 @@
     </style>
 </head>
 <body>
-    <input type="text" id="line-1" placeholder="RUN" maxlength="3"/>
-    <input type="text" id="line-2" placeholder="DMC" maxlength="3"/>
+    <input type="text" id="line-1" value="RUN" placeholder="RUN" maxlength="3"/>
+    <input type="text" id="line-2" value="DMC" placeholder="DMC" maxlength="3"/>
     <canvas id="myCanvas" width="1180" height="1292" style="border:1px solid #000000;">
         Your browser does not support Canvas.
     </canvas>
@@ -28,22 +28,46 @@
 <script>
     var canvas = document.getElementById("myCanvas");
     var ctx = canvas.getContext("2d");
+
     ctx.fillStyle = "#000000";
     ctx.fillRect(0, 0, canvas.width, canvas.height);
     
-    ctx.fillStyle = "#F70000";
-    ctx.fillRect(40, 40, 1100, 158);
-    ctx.fillRect(40, 1094, 1100, 158);
+    ctx.fillStyle = "#BE0A26";
+    ctx.fillRect(30, 30, 1120, 163); //x, y, width, height
+    ctx.fillRect(30, 1104, 1120, 163); //x, y, width, height
 
     ctx.fillStyle = "#FFFFFF";
-    ctx.font = "150px Arial";
-    // ctx.fillText("RUN",10,50);
-    // ctx.fillText("DMC",10,50);
+    ctx.font = "300px franklin-gothic-heavy";
 
-    function download(){
+    function download() {
         var download = document.getElementById("download");
         var image = document.getElementById("myCanvas").toDataURL("image/jpeg").replace("image/png", "image/octet-stream");
         download.setAttribute("href", image);
     }
+
+    line1Input = document.querySelector('#line-1');
+    line1Input.onkeyup = function() {
+        if (ctx) {
+            // Remove old text
+            ctx.fillStyle = '#000000';
+            ctx.fillRect(30, 223, 1120, 408); //x, y, width, height
+            // Add new text
+            ctx.fillStyle = "#FFFFFF";
+            ctx.fillText(line1Input.value.toString().toUpperCase(), 30, 223, 1100); // text, x, y, maxwidth
+        }
+    }
+
+    line2Input = document.querySelector('#line-2');
+    line2Input.onkeyup = function() {
+        if (ctx) {
+            // Remove old text
+            ctx.fillStyle = '#000000';
+            ctx.fillRect(30, 661, 1120, 408); //x, y, width, height
+            // Add new text
+            ctx.fillStyle = "#FFFFFF";
+            ctx.fillText(line2Input.value.toString().toUpperCase(), 30, 661, 1100); // text, x, y, maxwidth
+        }
+    }
+
 </script>
 </html>
