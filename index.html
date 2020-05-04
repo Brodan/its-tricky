@@ -28,18 +28,13 @@
 <script>
     var canvas = document.getElementById("myCanvas");
     var ctx = canvas.getContext("2d");
-
     ctx.fillStyle = "#000000";
     ctx.fillRect(0, 0, canvas.width, canvas.height);
+    initDMC()
     
-    ctx.fillStyle = "#BE0A26";
-    ctx.fillRect(30, 30, 1120, 163); //x, y, width, height
-    ctx.fillRect(30, 1099, 1120, 163); //x, y, width, height
-
-    ctx.fillStyle = "#FFFFFF";
-    ctx.font = "650px franklin-gothic-heavy";
-    ctx.textBaseline = "top";
-    ctx.textAlign = "left";
+    ctx.font = "600px franklin-gothic-heavy";
+    ctx.textBaseline = "middle";
+    ctx.textAlign = "center";
 
     function download() {
         var download = document.getElementById("download");
@@ -47,27 +42,35 @@
         download.setAttribute("href", image);
     }
 
+    function initDMC() {
+        ctx.fillStyle = "#BE0A26";
+        ctx.fillRect(30, 30, 1120, 163); //x, y, width, height
+        ctx.fillRect(30, 1099, 1120, 163);
+    }
+
+    function clearText(y, height) {
+        ctx.fillStyle = '#000000';
+        ctx.fillRect(0, y, 1180, height); //x, y, width, height
+    }
+
+    function drawText(text, y) {
+        ctx.fillStyle = "#FFFFFF";
+        ctx.fillText(text.toString().toUpperCase(), 30, y, 1120); // text, x, y, maxwidth
+    }
+
     line1Input = document.querySelector('#line-1');
     line1Input.onkeyup = function() {
         if (ctx) {
-            // Remove old text
-            ctx.fillStyle = '#000000';
-            ctx.fillRect(0, 223, 1180, 408); //x, y, width, height
-            // Add new text
-            ctx.fillStyle = "#FFFFFF";
-            ctx.fillText(line1Input.value.toString().toUpperCase(), 30, 223, 1120); // text, x, y, maxwidth
+            clearText(193, 468)
+            drawText(line1Input.value, 427)
         }
     }
 
     line2Input = document.querySelector('#line-2');
     line2Input.onkeyup = function() {
         if (ctx) {
-            // Remove old text
-            ctx.fillStyle = '#000000';
-            ctx.fillRect(0, 661, 1180, 408); //x, y, width, height
-            // Add new text
-            ctx.fillStyle = "#FFFFFF";
-            ctx.fillText(line2Input.value.toString().toUpperCase(), 30, 661, 1120); // text, x, y, maxwidth
+            clearText(631, 468)
+            drawText(line2Input.value, 865)
         }
     }
 
