@@ -34,7 +34,7 @@
     
     ctx.font = "600px franklin-gothic-heavy";
     ctx.textBaseline = "middle";
-    ctx.textAlign = "center";
+    ctx.textAlign = "left";
 
     function download() {
         var download = document.getElementById("download");
@@ -61,16 +61,16 @@
     line1Input = document.querySelector('#line-1');
     line1Input.onkeyup = function() {
         if (ctx) {
-            clearText(193, 468)
-            drawText(line1Input.value, 427)
+            clearText(193, 453)
+            drawText(line1Input.value, 442)
         }
     }
 
     line2Input = document.querySelector('#line-2');
     line2Input.onkeyup = function() {
         if (ctx) {
-            clearText(631, 468)
-            drawText(line2Input.value, 865)
+            clearText(646, 468)
+            drawText(line2Input.value, 895)
         }
     }
 
