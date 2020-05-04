@@ -34,10 +34,12 @@
     
     ctx.fillStyle = "#BE0A26";
     ctx.fillRect(30, 30, 1120, 163); //x, y, width, height
-    ctx.fillRect(30, 1104, 1120, 163); //x, y, width, height
+    ctx.fillRect(30, 1099, 1120, 163); //x, y, width, height
 
     ctx.fillStyle = "#FFFFFF";
-    ctx.font = "300px franklin-gothic-heavy";
+    ctx.font = "650px franklin-gothic-heavy";
+    ctx.textBaseline = "top";
+    ctx.textAlign = "left";
 
     function download() {
         var download = document.getElementById("download");
@@ -50,10 +52,10 @@
         if (ctx) {
             // Remove old text
             ctx.fillStyle = '#000000';
-            ctx.fillRect(30, 223, 1120, 408); //x, y, width, height
+            ctx.fillRect(0, 223, 1180, 408); //x, y, width, height
             // Add new text
             ctx.fillStyle = "#FFFFFF";
-            ctx.fillText(line1Input.value.toString().toUpperCase(), 30, 223, 1100); // text, x, y, maxwidth
+            ctx.fillText(line1Input.value.toString().toUpperCase(), 30, 223, 1120); // text, x, y, maxwidth
         }
     }
 
@@ -62,10 +64,10 @@
         if (ctx) {
             // Remove old text
             ctx.fillStyle = '#000000';
-            ctx.fillRect(30, 661, 1120, 408); //x, y, width, height
+            ctx.fillRect(0, 661, 1180, 408); //x, y, width, height
             // Add new text
             ctx.fillStyle = "#FFFFFF";
-            ctx.fillText(line2Input.value.toString().toUpperCase(), 30, 661, 1100); // text, x, y, maxwidth
+            ctx.fillText(line2Input.value.toString().toUpperCase(), 30, 661, 1120); // text, x, y, maxwidth
         }
     }
 
