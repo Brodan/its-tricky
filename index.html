@@ -1,78 +1,73 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8"/>
-    <title>It's Tricky - RUN D.M.C. Logo Generator</title>
-    <style type="text/css">
-        @font-face {
-            font-family: "franklin-gothic-heavy";
-            src: url("./Franklin\ Gothic\ Heavy\ Regular.ttf");
-        }
-        .run-dmc {
-            font-weight: 900;
-            font-size: 36px;
-            font-style: normal;
-            font-family: "franklin-gothic-heavy";
-        }
-    </style>
-</head>
-<body>
-    <input type="text" id="line-1" value="RUN" placeholder="RUN" maxlength="3"/>
-    <input type="text" id="line-2" value="DMC" placeholder="DMC" maxlength="3"/>
-    <canvas id="myCanvas" width="1180" height="1292" style="border:1px solid #000000;">
-        Your browser does not support Canvas.
-    </canvas>
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <title>It's Tricky - Hip-hop Logo Generator</title>
     
-    <a id="download" download="logo.jpg"><button type="button" onClick="download()">Download</button></a>    
-</body>
-<script>
-    var canvas = document.getElementById("myCanvas");
-    var ctx = canvas.getContext("2d");
-    ctx.fillStyle = "#000000";
-    ctx.fillRect(0, 0, canvas.width, canvas.height);
-    initDMC()
-    
-    ctx.font = "600px franklin-gothic-heavy";
-    ctx.textBaseline = "middle";
-    ctx.textAlign = "left";
+            <style type="text/css">
+                @font-face {
+                    font-family: "franklin-gothic-heavy";
+                    src: url("./static/fonts/Franklin\ Gothic\ Heavy\ Regular.ttf");
+                }
+                .run-dmc {
+                    font-weight: 900;
+                    font-size: 36px;
+                    font-style: normal;
+                    font-family: "franklin-gothic-heavy";
+                }
+        </style>
+    </head>
+    <body class="text-center">
+        <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+            <header class="masthead mb-auto">
+                <div class="inner">
+                    <h3 class="masthead-brand">its-tricky</h3>
+                    <nav class="nav nav-masthead justify-content-center">
+                        <a class="nav-link" href="https://github.com/Brodan/its-tricky">Source Code</a>
+                    </nav>
+                </div>
+            </header>
 
-    function download() {
-        var download = document.getElementById("download");
-        var image = document.getElementById("myCanvas").toDataURL("image/jpeg").replace("image/png", "image/octet-stream");
-        download.setAttribute("href", image);
-    }
+            <main role="main" class="inner cover">
+                <div class="row">
+                    <div class="col-3"></div>
+                    <div class="col-2">
+                        <div class="form-group">
+                            <label></label>
+                            <input type="text" placeholder="RUN" value="RUN" maxlength="3" class="form-control" id="line-1" aria-describedby="emailHelp">
+                            <small id="emailHelp" class="form-text text-muted">Top Line</small>
+                        </div>
+                    </div>
+                    <div class="col-2">
+                        <div class="form-group">
+                            <label></label>
+                            <input type="text" placeholder="DMC" value="DMC" maxlength="3" class="form-control" id="line-2" aria-describedby="emailHelp">
+                            <small id="emailHelp" class="form-text text-muted">Bottom Line</small>
+                        </div>
+                    </div>
+                    <div class="col-2">
+                        <div class="form-group">
+                            <label></label>
+                            <a id="download" download="logo.jpg"><button type="button" class="form-control btn btn-outline-secondary" onClick="download()">Download</button></a>
+                        </div>
+                    </div>
+                    <div class="col-3"></div>
+                </div>
+                <canvas id="myCanvas" width="1180" height="1292" style="border:1px solid #000000;">
+                    Your browser does not support Canvas.
+                </canvas>
+            </main>
 
-    function initDMC() {
-        ctx.fillStyle = "#BE0A26";
-        ctx.fillRect(30, 30, 1120, 163); //x, y, width, height
-        ctx.fillRect(30, 1099, 1120, 163);
-    }
-
-    function clearText(y, height) {
-        ctx.fillStyle = '#000000';
-        ctx.fillRect(0, y, 1180, height); //x, y, width, height
-    }
-
-    function drawText(text, y) {
-        ctx.fillStyle = "#FFFFFF";
-        ctx.fillText(text.toString().toUpperCase(), 30, y, 1120); // text, x, y, maxwidth
-    }
-
-    line1Input = document.querySelector('#line-1');
-    line1Input.onkeyup = function() {
-        if (ctx) {
-            clearText(193, 453)
-            drawText(line1Input.value, 442)
-        }
-    }
-
-    line2Input = document.querySelector('#line-2');
-    line2Input.onkeyup = function() {
-        if (ctx) {
-            clearText(646, 468)
-            drawText(line2Input.value, 895)
-        }
-    }
-
-</script>
+            <footer class="mastfoot mt-auto">
+                <div class="inner">
+                    <p>Made with <a href="https://getbootstrap.com/">Bootstrap</a>, by <a href="https://twitter.com/brodan_">@brodan_</a>.</p>
+                </div>
+            </footer>
+        </div>
+    </body>
+    <script src="./static/js/tricky.js"></script>
 </html>
+
