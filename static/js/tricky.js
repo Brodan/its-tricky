@@ -1,8 +1,12 @@
 var canvas = document.getElementById("myCanvas");
 var ctx = canvas.getContext("2d");
+var cWidth = canvas.width;
+var cHeight = canvas.height;
+var verticalSpacerSize = 0.02321981424 * cHeight;
+var horizontalSpacerSize = 0.02321981424 * cWidth;
 
 ctx.fillStyle = "#000000";
-ctx.fillRect(0, 0, canvas.width, canvas.height);
+ctx.fillRect(0, 0, cWidth, cHeight);
 initDMC()
 
 ctx.font = "600px franklin-gothic-heavy";
@@ -16,9 +20,11 @@ function download() {
 }
 
 function initDMC() {
+    var redBarHeight = 0.12616099071 * cHeight;
+    var redBarWidth = cWidth - (horizontalSpacerSize * 2);
     ctx.fillStyle = "#BE0A26";
-    ctx.fillRect(30, 30, 1120, 163); //x, y, width, height
-    ctx.fillRect(30, 1099, 1120, 163);
+    ctx.fillRect(horizontalSpacerSize, verticalSpacerSize, redBarWidth, redBarHeight); //x, y, width, height
+    ctx.fillRect(horizontalSpacerSize, cHeight - verticalSpacerSize - redBarHeight, redBarWidth, redBarHeight);
 }
 
 function clearText(y, height) {
@@ -28,7 +34,8 @@ function clearText(y, height) {
 
 function drawText(text, y) {
     ctx.fillStyle = "#FFFFFF";
-    ctx.fillText(text.toString().toUpperCase(), 30, y, 1120); // text, x, y, maxwidth
+    //BREAK UP INTO THREE
+    ctx.fillText(text.toString().toUpperCase(), 0, y, 1150); // text, x, y, maxwidth
 }
 
 line1Input = document.querySelector('#line-1');
